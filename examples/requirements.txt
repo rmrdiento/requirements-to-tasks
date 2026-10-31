@@ -1,0 +1,8 @@
+Subject: New booking website for Smile Dental
+
+Hi team,
+
+We run a small dental clinic with three dentists and would like to replace our paper diary with an online booking system. Patients should be able to book, move and cancel their own appointments from the website without calling us. The receptionist needs one screen that shows today's appointments for each dentist. Patients must get an SMS reminder the day before the visit, because no-shows cost us a lot of money. We also want to take a deposit when booking, but we have not decided on the amount yet. Everything has to work on phones, since most patients use them. Patient data is sensitive, so only clinic staff may see it and we need to follow GDPR. It would be nice to have a waiting list that offers freed-up slots to other patients. We would like to launch before the summer holidays.
+
+Thanks,
+Maria

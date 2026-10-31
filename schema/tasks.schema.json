@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Task list extracted from customer requirements",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["project_summary", "tasks", "open_questions"],
+  "properties": {
+    "project_summary": {"type": "string", "minLength": 1},
+    "tasks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "description", "priority", "acceptance_criteria", "depends_on", "source_quote"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^T-[0-9]{2,}$"},
+          "title": {"type": "string", "minLength": 1, "maxLength": 80},
+          "description": {"type": "string", "minLength": 1},
+          "priority": {"enum": ["high", "medium", "low"]},
+          "acceptance_criteria": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "depends_on": {"type": "array", "items": {"type": "string", "pattern": "^T-[0-9]{2,}$"}},
+          "source_quote": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "open_questions": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  }
+}

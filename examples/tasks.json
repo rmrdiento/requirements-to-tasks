@@ -1,0 +1,105 @@
+{
+  "project_summary": "Replace the paper diary of a three-dentist clinic with an online booking system for patients and a daily schedule for the receptionist.",
+  "tasks": [
+    {
+      "id": "T-01",
+      "title": "Online appointment booking",
+      "description": "Patients pick a dentist and a free time slot on the website and book an appointment without calling the clinic.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "A patient can book a free slot with any of the three dentists",
+        "A booked slot is no longer offered to other patients"
+      ],
+      "depends_on": [],
+      "source_quote": "Patients should be able to book, move and cancel their own appointments from the website without calling us"
+    },
+    {
+      "id": "T-02",
+      "title": "Reschedule and cancel appointments",
+      "description": "Patients move or cancel their own appointments from the website.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "A patient can move an appointment to another free slot",
+        "A cancelled appointment frees the slot again"
+      ],
+      "depends_on": ["T-01"],
+      "source_quote": "move and cancel their own appointments from the website"
+    },
+    {
+      "id": "T-03",
+      "title": "Receptionist daily schedule screen",
+      "description": "One screen for clinic staff listing today's appointments for each dentist.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "The screen shows today's appointments grouped by dentist",
+        "New bookings and cancellations appear without manual work"
+      ],
+      "depends_on": ["T-01"],
+      "source_quote": "The receptionist needs one screen that shows today's appointments for each dentist"
+    },
+    {
+      "id": "T-04",
+      "title": "SMS reminder the day before the visit",
+      "description": "Every patient receives an SMS reminder on the day before the appointment.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "An SMS is sent the day before each active appointment",
+        "No SMS is sent for cancelled appointments"
+      ],
+      "depends_on": ["T-01"],
+      "source_quote": "Patients must get an SMS reminder the day before the visit"
+    },
+    {
+      "id": "T-05",
+      "title": "Deposit payment at booking",
+      "description": "Patients pay a deposit when they book. The amount and payment provider are not decided yet.",
+      "priority": "medium",
+      "acceptance_criteria": [
+        "A booking is confirmed only after the deposit is paid",
+        "The deposit amount is configurable"
+      ],
+      "depends_on": ["T-01"],
+      "source_quote": "We also want to take a deposit when booking, but we have not decided on the amount yet"
+    },
+    {
+      "id": "T-06",
+      "title": "Mobile-friendly interface",
+      "description": "All patient-facing pages work on phone screens.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "Booking, rescheduling and cancelling can be completed on a phone"
+      ],
+      "depends_on": [],
+      "source_quote": "Everything has to work on phones, since most patients use them"
+    },
+    {
+      "id": "T-07",
+      "title": "Staff-only access to patient data (GDPR)",
+      "description": "Patient data is visible to clinic staff only, and data handling follows GDPR.",
+      "priority": "high",
+      "acceptance_criteria": [
+        "Patient data is not accessible without a staff login",
+        "Patients can request export and deletion of their data"
+      ],
+      "depends_on": [],
+      "source_quote": "only clinic staff may see it and we need to follow GDPR"
+    },
+    {
+      "id": "T-08",
+      "title": "Waiting list for freed-up slots",
+      "description": "Patients can join a waiting list and are offered slots that become free after cancellations.",
+      "priority": "low",
+      "acceptance_criteria": [
+        "A freed-up slot is offered to patients on the waiting list"
+      ],
+      "depends_on": ["T-01", "T-02"],
+      "source_quote": "It would be nice to have a waiting list that offers freed-up slots to other patients"
+    }
+  ],
+  "open_questions": [
+    "What is the deposit amount, and is it refunded when a patient cancels?",
+    "Which SMS and payment providers should be used, and who pays for them?",
+    "What is the exact launch date? \"Before the summer holidays\" is not a date.",
+    "What are the opening hours of the clinic and the appointment length per treatment?"
+  ]
+}
