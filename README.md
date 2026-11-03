@@ -53,6 +53,16 @@ python main.py my_requirements.txt
 
 Results are written to `output/tasks.json` and `output/tasks.md`. Options: `-o` output folder, `--model`, `--max-attempts` (default 3), `--log`.
 
+## Send tasks to GitHub Issues
+
+```bash
+export GITHUB_TOKEN=...             # token with permission to create issues in the repo
+python main.py my_requirements.txt --github-issues owner/repo --dry-run   # preview
+python main.py my_requirements.txt --github-issues owner/repo             # create
+```
+
+Each task becomes one issue through the GitHub REST API (`POST /repos/{owner}/{repo}/issues`): title `T-01 ...`, a checklist of acceptance criteria, the dependencies, the customer's original sentence, and a `priority:high|medium|low` label. Issues are created only after the reply passed validation. If GitHub rejects a request the tool stops and reports how many issues already exist, so re-running would duplicate them; check the repo first.
+
 ## How validation works
 
 1. The model gets the requirements plus the JSON Schema (`schema/tasks.schema.json`) and must answer with one JSON object.
