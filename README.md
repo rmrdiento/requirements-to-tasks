@@ -61,6 +61,8 @@ python main.py my_requirements.txt --github-issues owner/repo --dry-run   # prev
 python main.py my_requirements.txt --github-issues owner/repo             # create
 ```
 
+![issues created from the demo run](docs/issues.png)
+
 Each task becomes one issue through the GitHub REST API (`POST /repos/{owner}/{repo}/issues`): title `T-01 ...`, a checklist of acceptance criteria, the dependencies, the customer's original sentence, and a `priority:high|medium|low` label. Issues are created only after the reply passed validation. If GitHub rejects a request the tool stops and reports how many issues already exist, so re-running would duplicate them; check the repo first.
 
 ## How validation works
